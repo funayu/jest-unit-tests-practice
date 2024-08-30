@@ -53,6 +53,14 @@ test('two plus two', () => {
 // 浮動小数点の値が一致するかの確認
 test('adding floating point numbers', () => {
   const value = 0.1 + 0.2;
-  expect(value).toBe(0.3);
-  // expect(value).toBeCloseTo(0.3);
+  // expect(value).toBe(0.3); 丸め誤差が原因で期待結果にならない
+  expect(value).toBeCloseTo(0.3);
+});
+
+// 文字列
+test('there is not I in team', () => {
+  expect('team').not.toMatch(/I/); // 文字列が正規表現と一致することを確認 の否定
+});
+test("but there is a 'stop' in Christoph", () => {
+  expect('Christoph').toMatch(/stop/);
 });
