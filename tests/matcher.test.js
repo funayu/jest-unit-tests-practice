@@ -64,3 +64,16 @@ test('there is not I in team', () => {
 test("but there is a 'stop' in Christoph", () => {
   expect('Christoph').toMatch(/stop/);
 });
+
+// 配列
+const shoppingList = [
+  'diapers',
+  'kleenex',
+  'trash bags',
+  'paper towels',
+  'milk',
+];
+test('the shopping list has milk on it', () => {
+  expect(shoppingList).toContain('milk');
+  expect(new Set(shoppingList)).toContain('milk'); //配列を元にSetオブジェクトを作成してテスト
+});
