@@ -77,3 +77,20 @@ test('the shopping list has milk on it', () => {
   expect(shoppingList).toContain('milk');
   expect(new Set(shoppingList)).toContain('milk'); //配列を元にSetオブジェクトを作成してテスト
 });
+
+// 例外
+function compileAndroidCode() {
+  throw new Error('you are using the wrong JDK!');
+}
+test('compiling android goes as expeted', () => {
+  expect(() => compileAndroidCode()).toThrow();
+  expect(() => compileAndroidCode()).toThrow(Error);
+
+  // You can also use a string that must be contained in the error message or regexp
+  expect(() => compileAndroidCode()).toThrow('you are using the wrong JDK!');
+  expect(() => compileAndroidCode()).toThrow(/JDK/);
+
+  // or you can match an exact error message using a regexp like below
+  // expect(() => compileAndroidCode()).toThrow(/^you are using the wrong JDK$/);
+  expect(() => compileAndroidCode()).toThrow(/^you are using the wrong JDK!$/);
+});
